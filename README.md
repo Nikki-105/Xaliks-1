@@ -1,2 +1,0 @@
-# Xaliks
-Branded Tees
