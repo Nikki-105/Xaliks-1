@@ -7,6 +7,7 @@ const sections = [
     "menu",
 ];
 const cart = [];
+
 function updateSummary() {
     const orderEl = document.getElementById("order-summary");
     orderEl.innerHTML = "";
@@ -48,15 +49,13 @@ const categories = [
     "Abstract",
     "Sports",
 ];
-const products = [
-    {
+const products = [{
         id: 1,
         name: "Black Authentic",
         price: 599,
         color: "White",
         category: "Minimal",
-        image:
-            "https://cdn.shopify.com/s/files/1/0337/9413/0052/files/make-it-happen_14fa3ba3-0fff-407d-81a3-61265afbb624.jpg?v=1722233587",
+        image: "https://cdn.shopify.com/s/files/1/0337/9413/0052/files/make-it-happen_14fa3ba3-0fff-407d-81a3-61265afbb624.jpg?v=1722233587",
     },
     {
         id: 2,
@@ -64,8 +63,7 @@ const products = [
         price: 599,
         color: "White",
         category: "Minimal",
-        image:
-            "https://cdn.shopify.com/s/files/1/0337/9413/0052/files/make-it-happen_14fa3ba3-0fff-407d-81a3-61265afbb624.jpg?v=1722233587",
+        image: "https://cdn.shopify.com/s/files/1/0337/9413/0052/files/make-it-happen_14fa3ba3-0fff-407d-81a3-61265afbb624.jpg?v=1722233587",
     },
     {
         id: 3,
@@ -73,8 +71,7 @@ const products = [
         price: 699,
         color: "Red",
         category: "Abstract",
-        image:
-            "https://image.hm.com/assets/hm/e4/89/e48924ece823f919263814643ee0aa14e5557bee.jpg?imwidth=1260",
+        image: "https://image.hm.com/assets/hm/e4/89/e48924ece823f919263814643ee0aa14e5557bee.jpg?imwidth=1260",
     },
     {
         id: 4,
@@ -82,8 +79,7 @@ const products = [
         price: 549,
         color: "Green",
         category: "Festive",
-        image:
-            "https://unstd.in/cdn/shop/files/SAGE-GREEN-2.jpg?v=1734507963&width=1200",
+        image: "https://unstd.in/cdn/shop/files/SAGE-GREEN-2.jpg?v=1734507963&width=1200",
     },
     {
         id: 5,
@@ -91,8 +87,7 @@ const products = [
         price: 459,
         color: "Blue",
         category: "Quotes",
-        image:
-            "https://unstd.in/cdn/shop/files/red_2d00f354-3cfc-45e3-ae4d-d162d9bf815e.jpg?v=1744423015&width=1000",
+        image: "https://unstd.in/cdn/shop/files/red_2d00f354-3cfc-45e3-ae4d-d162d9bf815e.jpg?v=1744423015&width=1000",
     },
     {
         id: 6,
@@ -100,8 +95,7 @@ const products = [
         price: 749,
         color: "Purple",
         category: "Cartoon",
-        image:
-            "https://image.hm.com/assets/hm/a5/93/a59385f75e8db1455d9de67b30f9d7820c13cb81.jpg?imwidth=1260",
+        image: "https://image.hm.com/assets/hm/a5/93/a59385f75e8db1455d9de67b30f9d7820c13cb81.jpg?imwidth=1260",
     },
     {
         id: 7,
@@ -109,8 +103,7 @@ const products = [
         price: 599,
         color: "Orange",
         category: "Vintage",
-        image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT48nlvQVirHPhnOCHjdUVmtDiat-xivyEP_g&usqp=CAU",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT48nlvQVirHPhnOCHjdUVmtDiat-xivyEP_g&usqp=CAU",
     },
     {
         id: 9,
@@ -118,8 +111,7 @@ const products = [
         price: 699,
         color: "Multicolor",
         category: "Streetwear",
-        image:
-            "https://rukminim2.flixcart.com/image/786/972/xif0q/t-shirt/4/q/6/xl-anime-printed-tshirt-for-mens-zen1fashion-original-imagtdrxzngc5ghs.jpeg?q=60&crop=false",
+        image: "https://rukminim2.flixcart.com/image/786/972/xif0q/t-shirt/4/q/6/xl-anime-printed-tshirt-for-mens-zen1fashion-original-imagtdrxzngc5ghs.jpeg?q=60&crop=false",
     },
     {
         id: 10,
@@ -127,8 +119,7 @@ const products = [
         price: 799,
         color: "Yellow",
         category: "Quotes",
-        image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUzyu1gF2jXzp7bYmDgwId8KZU2G-pahhSAA&usqp=CAU",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUzyu1gF2jXzp7bYmDgwId8KZU2G-pahhSAA&usqp=CAU",
     },
 ];
 
@@ -153,16 +144,16 @@ const productList = document.getElementById("productList");
 const searchInput = document.getElementById("searchInput");
 const noResults = document.getElementById("noResults");
 
-searchInput.addEventListener("input", function () {
+searchInput.addEventListener("input", function() {
     const query = this.value.toLowerCase().trim();
     if (query === "") {
         renderProducts(products);
     } else {
         const filtered = products.filter(
             (p) =>
-                p.name.toLowerCase().includes(query) ||
-                p.color.toLowerCase().includes(query) ||
-                p.category.toLowerCase().includes(query)
+            p.name.toLowerCase().includes(query) ||
+            p.color.toLowerCase().includes(query) ||
+            p.category.toLowerCase().includes(query)
         );
         renderProducts(filtered);
     }
@@ -216,20 +207,20 @@ function viewProduct(id) {
         .slice(0, 4);
 
     const recHTML =
-        recommendations.length > 0
-            ? `
+        recommendations.length > 0 ?
+        `
     <h3 class="text-lg font-semibold mt-8 mb-4 text-white">You may also like</h3>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         ${recommendations.map((p) => productCard(p)).join("")}
     </div>
-`
-            : "";
+` :
+        "";
 
     // Thumbnails
     const thumbnails = images
         .map(
             (img, i) =>
-                `<img src="${img}" class="w-16 h-16 object-cover rounded border cursor-pointer ${i === 0 ? "border-blue-500" : "border-gray-300"}" onclick="document.getElementById('main-img').src='${img}'">`
+            `<img src="${img}" class="w-16 h-16 object-cover rounded border cursor-pointer ${i === 0 ? "border-blue-500" : "border-gray-300"}" onclick="document.getElementById('main-img').src='${img}'">`
         )
         .join("");
 
@@ -281,10 +272,12 @@ function viewProduct(id) {
 function addToWishlist(id) {
     alert("Added to wishlist!");
 }
+
 function buyNow(id) {
     addToCart(id);
     displaySection("cart");
 }
+
 function checkDelivery() {
     const pincode = document.getElementById("pincode").value.trim();
     const msg = document.getElementById("delivery-msg");
@@ -296,9 +289,13 @@ function checkDelivery() {
         msg.className = "text-red-600 mt-1";
     }
 }
+
 function shareProduct(name, url) {
     if (navigator.share) {
-        navigator.share({ title: name, url });
+        navigator.share({
+            title: name,
+            url
+        });
     } else {
         navigator.clipboard.writeText(url);
         alert("Product link copied!");
@@ -393,10 +390,10 @@ function updateCart() {
     if (count.textContent === "0") {
         // console.log(count.textContent);        
         msgOfCartCount.textContent = "No items were added";
-    }
-    else {
+    } else {
         msgOfCartCount.textContent = "";
     }
+    updateOrderSummary();
 }
 
 function goToPayment() {
@@ -408,7 +405,7 @@ function renderMenu() {
     buttons.innerHTML = categories
         .map(
             (cat) =>
-                `<button onclick="showCategory('${cat}')" class="bg-yellow-100 px-3 py-1 rounded hover:bg-yellow-300 text-sm">${cat}</button>`
+            `<button onclick="showCategory('${cat}')" class="bg-yellow-100 px-3 py-1 rounded hover:bg-yellow-300 text-sm">${cat}</button>`
         )
         .join("");
     showCategory(categories[0]);
@@ -446,35 +443,93 @@ const defaultProfile = {
     name: "X User",
     email: "xaliks@example.com",
     phone: "+91 98765 43210",
-    img: "https://randomuser.me/api/portraits/men/1.jpg",
-    addresses: [
-        {
-            name: "Johnny Sins",
-            phone: "+91 98765 43210",
-            email: "johnny@example.com",
-            addressLine: "Street no 69, KPHB Metro station",
-            pincode: "500072",
-            state: "Telangana"
-        }
-    ]
+    img: "https://randomuser.me/api/portraits/men/5.jpg",
+    addresses: [{
+        name: "Johnny Sins",
+        phone: "+91 98765 43210",
+        email: "johnny@example.com",
+        addressLine: "Street no 8, GB Road, Hyderabad",
+        pincode: "500072",
+        state: "Telangana"
+    }]
 };
 
 let editingAddressIndex = null;
 
+// Show modal for adding new address
+document.getElementById('add-new-address-btn').onclick = function() {
+    editingAddressIndex = null; // Make sure we're adding, not editing
+    document.getElementById('address-modal-title').textContent = 'Add Address';
+    fillStateDropdown("edit-address-state");
+    document.getElementById('edit-address-form').reset();
+    document.getElementById('edit-address-modal').classList.remove('hidden');
+};
+
+// Show/hide saved addresses section
+document.getElementById('show-saved-addresses-btn').onclick = function() {
+    const section = document.getElementById('saved-addresses-section');
+    section.classList.toggle('hidden');
+};
+
+// Open modal for editing address
+function openEditAddressModal(i) {
+    editingAddressIndex = i;
+    fillStateDropdown("edit-address-state");
+    const profile = getProfile();
+    const addr = profile.addresses[i];
+    document.getElementById("address-modal-title").textContent = "Edit Address";
+    document.getElementById("edit-address-name").value = addr.name;
+    document.getElementById("edit-address-phone").value = addr.phone;
+    document.getElementById("edit-address-email").value = addr.email;
+    document.getElementById("edit-address-line").value = addr.addressLine;
+    document.getElementById("edit-address-pincode").value = addr.pincode;
+    document.getElementById("edit-address-state").value = addr.state;
+    document.getElementById("edit-address-modal").classList.remove("hidden");
+}
+
+// Close modal
+function closeEditAddressModal() {
+    editingAddressIndex = null;
+    document.getElementById("edit-address-modal").classList.add("hidden");
+}
+
+// Save address (add or edit)
+function saveEditedAddress(e) {
+    e.preventDefault();
+    const profile = getProfile();
+    const newAddr = {
+        name: document.getElementById("edit-address-name").value.trim(),
+        phone: document.getElementById("edit-address-phone").value.trim(),
+        email: document.getElementById("edit-address-email").value.trim(),
+        addressLine: document.getElementById("edit-address-line").value.trim(),
+        pincode: document.getElementById("edit-address-pincode").value.trim(),
+        state: document.getElementById("edit-address-state").value
+    };
+    if (editingAddressIndex === null) {
+        profile.addresses.push(newAddr); // Add new
+    } else {
+        profile.addresses[editingAddressIndex] = newAddr; // Edit existing
+    }
+    setProfile(profile);
+    closeEditAddressModal();
+    showProfile();
+}
+
 function getProfile() {
     return JSON.parse(localStorage.getItem("profile") || "null") || defaultProfile;
 }
+
 function setProfile(profile) {
     localStorage.setItem("profile", JSON.stringify(profile));
 }
+
 function showProfile() {
     const profile = getProfile();
     document.getElementById("profile-img").src = profile.img || defaultProfile.img;
     document.getElementById("profile-name").textContent = profile.name;
     document.getElementById("profile-email").textContent = profile.email;
     document.getElementById("profile-phone").textContent = `Phone: ${profile.phone}`;
-    fillStateDropdown("address-state");
-    // Addresses
+    // Render saved addresses
     const addrList = document.getElementById("address-list");
     addrList.innerHTML = "";
     profile.addresses.forEach((addr, i) => {
@@ -493,6 +548,7 @@ function showProfile() {
     });
     renderBillingAddresses();
 }
+
 function editProfile() {
     const profile = getProfile();
     document.getElementById("profile-view").classList.add("hidden");
@@ -501,6 +557,7 @@ function editProfile() {
     document.getElementById("edit-email").value = profile.email;
     document.getElementById("edit-phone").value = profile.phone;
 }
+
 function saveProfile(e) {
     e.preventDefault();
     const profile = getProfile();
@@ -512,15 +569,17 @@ function saveProfile(e) {
     document.getElementById("profile-view").classList.remove("hidden");
     showProfile();
 }
+
 function cancelEditProfile() {
     document.getElementById("profile-edit").classList.add("hidden");
     document.getElementById("profile-view").classList.remove("hidden");
 }
+
 function changeProfileImage(e) {
     const file = e.target.files[0];
     if (!file) return;
     const reader = new FileReader();
-    reader.onload = function (evt) {
+    reader.onload = function(evt) {
         const profile = getProfile();
         profile.img = evt.target.result;
         setProfile(profile);
@@ -528,6 +587,7 @@ function changeProfileImage(e) {
     };
     reader.readAsDataURL(file);
 }
+
 function addAddress(e) {
     e.preventDefault();
     const profile = getProfile();
@@ -543,33 +603,33 @@ function addAddress(e) {
     e.target.reset();
     showProfile();
 }
+
 function removeAddress(i) {
     const profile = getProfile();
     profile.addresses.splice(i, 1);
     setProfile(profile);
     showProfile();
 }
-function openEditAddressModal(i) {
-    editingAddressIndex = i;
+
+// Show modal for adding new address
+document.getElementById('add-new-address-btn').onclick = function() {
+    editingAddressIndex = null; // Make sure we're adding, not editing
+    document.getElementById('address-modal-title').textContent = 'Add Address';
     fillStateDropdown("edit-address-state");
-    const profile = getProfile();
-    const addr = profile.addresses[i];
-    document.getElementById("edit-address-name").value = addr.name;
-    document.getElementById("edit-address-phone").value = addr.phone;
-    document.getElementById("edit-address-email").value = addr.email;
-    document.getElementById("edit-address-line").value = addr.addressLine;
-    document.getElementById("edit-address-pincode").value = addr.pincode;
-    document.getElementById("edit-address-state").value = addr.state;
-    document.getElementById("edit-address-modal").classList.remove("hidden");
-}
-function closeEditAddressModal() {
-    editingAddressIndex = null;
-    document.getElementById("edit-address-modal").classList.add("hidden");
-}
+    document.getElementById('edit-address-form').reset();
+    document.getElementById('edit-address-modal').classList.remove('hidden');
+};
+
+// Show/hide saved addresses section
+document.getElementById('show-saved-addresses-btn').onclick = function() {
+    const section = document.getElementById('saved-addresses-section');
+    section.classList.toggle('hidden');
+};
+
 function saveEditedAddress(e) {
     e.preventDefault();
     const profile = getProfile();
-    profile.addresses[editingAddressIndex] = {
+    const newAddr = {
         name: document.getElementById("edit-address-name").value.trim(),
         phone: document.getElementById("edit-address-phone").value.trim(),
         email: document.getElementById("edit-address-email").value.trim(),
@@ -577,6 +637,11 @@ function saveEditedAddress(e) {
         pincode: document.getElementById("edit-address-pincode").value.trim(),
         state: document.getElementById("edit-address-state").value
     };
+    if (editingAddressIndex === null) {
+        profile.addresses.push(newAddr); // Add new
+    } else {
+        profile.addresses[editingAddressIndex] = newAddr; // Edit existing
+    }
     setProfile(profile);
     closeEditAddressModal();
     showProfile();
@@ -584,6 +649,7 @@ function saveEditedAddress(e) {
 
 // --- Billing Address Logic ---
 let billingEditingIndex = null;
+
 function renderBillingAddresses() {
     fillStateDropdown("billing-address-state");
     const profile = getProfile();
@@ -613,7 +679,7 @@ function renderBillingAddresses() {
     updateOrderSummaryAddress();
 }
 
-document.getElementById("add-new-billing-address-btn").onclick = function () {
+document.getElementById("add-new-billing-address-btn").onclick = function() {
     billingEditingIndex = null;
     fillStateDropdown("billing-address-state");
     document.getElementById("billing-modal-title").textContent = "Add Address";
@@ -694,11 +760,13 @@ function loginUser() {
     document.getElementById("login-section").classList.add("hidden");
     document.getElementById("profile-section").classList.remove("hidden");
 }
+
 function logoutUser() {
     localStorage.setItem("loggedIn", "false");
     document.getElementById("profile-section").classList.add("hidden");
     document.getElementById("login-section").classList.remove("hidden");
 }
+
 function checkLogin() {
     if (localStorage.getItem("loggedIn") === "true") {
         document.getElementById("login-section").classList.add("hidden");
@@ -752,15 +820,44 @@ function applyCoupon() {
 }
 
 function updateOrderSummary() {
-    const cartTotal = parseFloat(document.getElementById("cart-total").textContent) || 0;
-    const tax = +(cartTotal * 0.05).toFixed(2);
-    const total = cartTotal + tax - discount;
+    const cartItems = cart;
+    const summaryEl = document.getElementById("order-summary");
+    let summary = `<h2 style="font-weight:bold;font-size:1.5em;margin-bottom: 20px;">ORDER SUMMARY</h2>`;
+    let total = 0;
 
-    document.getElementById("subtotal").textContent = `₹${cartTotal.toFixed(2)}`;
-    document.getElementById("tax").textContent = `₹${tax.toFixed(2)}`;
-    document.getElementById("discount").textContent = `₹${discount.toFixed(2)}`;
-    document.getElementById("total").textContent = `₹${total.toFixed(2)}`;
+    // List items with flex layout
+    cartItems.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        summary += `<div style="display:flex;justify-content:space-between;">
+            <span>${item.name} x ${item.qty}</span>
+            <span>₹${itemTotal}</span>
+        </div>`;
+        total += itemTotal;
+    });
+
+    summary += `<hr style="margin:12px 0; border: none; height: 1   px; background-color: #000;">`;
+
+
+    // Separator line (console only)
+    console.log('______________________________');
+
+    // Billing calculations
+    const tax = +(total * 0.05).toFixed(2);
+    const subtotal = +(total + tax).toFixed(2);
+    const discountAmt = +(subtotal * (discount / 100)).toFixed(2);
+    const finalBilling = +(subtotal - discountAmt).toFixed(2);
+
+    // Billing part with flex layout
+    summary += `<div style="display:flex;justify-content:space-between;"><span>Total</span><span>₹${total}</span></div>`;
+    summary += `<div style="display:flex;justify-content:space-between;"><span>Tax</span><span>5%</span></div>`;
+    summary += `<div style="display:flex;justify-content:space-between;"><span>Subtotal</span><span>₹${subtotal}</span></div>`;
+    summary += `<div style="display:flex;justify-content:space-between;"><span>Discount</span><span>₹${discountAmt}</span></div>`;
+    summary += `<hr style="margin:8px 0;">`;
+    summary += `<div style="display:flex;justify-content:space-between;font-weight:bold;font-size:1.4em;"><span>Final Billing</span><span>₹${finalBilling}</span></div>`;
+
+    summaryEl.innerHTML = summary;
 }
+
 
 function goToPayment() {
     document.getElementById("cart").classList.add("hidden");
@@ -771,7 +868,7 @@ function goToPayment() {
 // Call on page load and when switching to profile
 checkLogin();
 const oldDisplaySection = displaySection;
-displaySection = function (id) {
+displaySection = function(id) {
     oldDisplaySection(id);
     if (id === "profile") checkLogin();
     if (id === "payment") renderBillingAddresses();

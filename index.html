@@ -3,376 +3,383 @@
 
 <head>
 
-  <link rel="icon" type="image/png" href="" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Raleway:wght@300&display=swap"
-    rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xaliks - Custom T-Shirts</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: "#4f46e5",
-            secondary: "#7c3aed",
-          },
-        },
-      },
-    };
-  </script>
-  <style>
-    .scrollbar-hide::-webkit-scrollbar {
-      display: none;
-    }
-  </style>
-  <script>
-    const link = document.createElement("link");
-    link.href =
-      "https://fonts.googleapis.com/css2?family=EB+Garamond&family=Raleway:wght@300&display=swap";
-    link.rel = "stylesheet";
-    document.head.appendChild(link);
-    document.querySelector(".brand-name").style.fontFamily =
-      "'EB Garamond', serif";
-    document.querySelector(".tagline").style.fontFamily =
-      "'Raleway', sans-serif";
-  </script>
+    <link rel="icon" type="image/png" href="" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Raleway:wght@300&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xaliks - Custom T-Shirts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#4f46e5",
+                        secondary: "#7c3aed",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script>
+        const link = document.createElement("link");
+        link.href =
+            "https://fonts.googleapis.com/css2?family=EB+Garamond&family=Raleway:wght@300&display=swap";
+        link.rel = "stylesheet";
+        document.head.appendChild(link);
+        document.querySelector(".brand-name").style.fontFamily =
+            "'EB Garamond', serif";
+        document.querySelector(".tagline").style.fontFamily =
+            "'Raleway', sans-serif";
+    </script>
 </head>
 
 <body class="bg-black text-gray-800">
-  <!-- Navbar -->
-  <header class="bg-white shadow-md h-[50px] sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-1 flex items-center justify-between">
-      <div class="flex mt-1" style="cursor: pointer" onclick="displaySection('home')">
-        <h1 class="font-mono subpixel-antialiased mt-1" style="font-size: 18px; font-weight: bold">
-          Xaliks
-        </h1>
-      </div>
-      <div class="hidden bg-white md:flex space-x-4 mt-2">
-        <button onclick="displaySection('home')" class="hover:text-primary">
-          Home
-        </button>
-        <button onclick="displaySection('menu')" class="hover:text-primary">
-          Menu
-        </button>
-        <button onclick="displaySection('cart')" class="hover:text-primary">
-          Cart(<span id="cart-count">0</span>)
-        </button>
-        <button onclick="displaySection('profile')" class="hover:text-primary">
-          Profile
-        </button>
-      </div>
-      <div class="md:hidden">
-        <button id="navToggle" class="text-2xl">
-          <img class="w-[40px] h-[40]"
-            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIAIAAgAMBIgACEQEDEQH/xAApAAEBAQEAAAAAAAAAAAAAAAAABgQFAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAKqAAAAAAAAAR+cuEOLhDi4Q4uEOLhD6CwABH57gQ64EOuBDrgQ64EPosAAAAAR+cuEOLhDi4Q+gsAAAAR+e4EOuBDrgQ+iwAAAAAA4R3UOLhD6CwAAAAA4XdEOuBD6LAAAAAAAAAAf/8QAAv/aAAwDAQACAAMAAAAhAAAAAAAAAEMMMMMAAwwwwwgAAAAEMMMAAAAwwwgAAAAAAMMAAAAAQwgAAAAAAAAA/8QAAv/aAAwDAQACAAMAAAAQ88888888888888488c88888888888848888c8888888848488888s88888888888/8QAFBEBAAAAAAAAAAAAAAAAAAAAYP/aAAgBAgEBPwAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAYP/aAAgBAwEBPwAB/8QAJhAAAAUDBQACAwEAAAAAAAAAAAECBRYDY5EEBhETITFQEjBBIP/aAAgBAQABPwL7LU7hr9qioJR+BH5z7yJE4W8CROFvAkThbwJE4W8CROFvAkThbwJE4W8CROFvAkThbwDTbhr9qSrpQaD+ePOP86nb1ftUdBSDQZ+c+GQjrhbyI64W8iOuFvIjrhbyI64W8iOuFvIjrhbyI64W8iOuFvIjrhbyI64W8iOuFvIjrhbyNNt6v2pOupBII/ePTP6nU7hr9qioJR+BH5z7yJE4W8CROFvAkThbwJE4W8CROFvAkThbwNNuGv2pKulBoP5484/TqdvV+1R0FINBn5z4ZCOuFvIjrhbyI64W8iOuFvIjrhbyI64W8jTber9qTrqQSCP3j0z+sdnZWkUmnTSRrMuTM/4JE4W8CROFvAkThbwNNuGv2pKulBoP5484/Y7NKtWpNSkoiWRcGR/0R1wt5EdcLeRHXC3kabb1ftSddSCQR+8emf2f//EABwQAAICAgMAAAAAAAAAAAAAAAERIDAhUDFBcf/aAAgBAQABPyHZKxIELVlVVVVVVfwCIGi48SD8Faqqqqqq5cAAWpCsSBC0yqqqr+ARA1LjxIPwTVVVVy4AAtYOvtGQgqq/gEQNY6+sZCCquXAAFsx//8QAGxAAAwEBAQEBAAAAAAAAAAAAAAFhEVAwIDH/2gAIAQEAAT8Q6WtDnUVTqdTqdTqdTqdTqa6KV3Sfzt8BvQYnE4nE4nE4nE4nE8qSO/JGtDnUVTqdTqdTqa6KV3Sfjt8BvQYnE4nE4nE8qSO/MH7f3A6VOp1NdFK7pP03eOBpUicTieVJHfpj/9k=" />
-        </button>
-      </div>
-    </div>
-    <div id="mobileNav" class="hidden bg-white md:hidden px-4 py-2 space-y-2">
-      <button onclick="displaySection('home');clk()" class="block">
-        Home
-      </button>
-      <button onclick="displaySection('menu');clk()" class="block">
-        Menu
-      </button>
-      <button onclick="displaySection('cart');clk()" class="block">
-        Cart(<span id="cart-count">0</span>)
-      </button>
-      <button onclick="displaySection('profile');clk()" class="block">
-        Profile
-      </button>
-    </div>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      integrity="sha512-mnF7MfAdVxAoEo3xYZ63gRyA8VNzvDK5X5u4Zya6d4XJvlUBOq1wqEmODF3e+7Lk8loA1+/1ZyU7GyD9WBKszQ=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-  </header>
-
-  <!-- Home  -->
-
-  <section id="home" class="p-4">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <div class="max-w-3xl mx-auto mt-6 px-4">
-      <div class="relative">
-        <span class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-          <i class="fas fa-search text-gray-400"></i>
-        </span>
-        <input id="searchInput" type="text" placeholder="Search for T-Shirts..."
-          class="w-full pl-10 pr-4 py-3 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-primary" />
-      </div>
-    </div>
-    <div class="mt-10 flex justify-center">
-      <img class="rounded-lg md:w-[980px]"
-        src="https://static.vecteezy.com/system/resources/previews/043/269/032/non_2x/a-3d-mockup-presents-a-blank-t-shirt-in-white-isolated-against-a-white-background-suitable-for-various-designs-ideal-for-showcasing-apparel-for-both-male-and-female-wearers-free-vector.jpg" />
-    </div>
-
-    <section id="productList"
-      class="max-w-5xl mx-auto p-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 mt-6"></section>
-    <div id="noResults" class="hidden text-center text-lg font-semibold text-red-600 mt-6">
-      No matching products found.
-    </div>
-
-    <div class="mb-6"></div>
-  </section>
-
-  <!-- product detail section -->
-
-  <section id="product-detail" class="hidden p-6"></section>
-
-  <!-- menu section -->
-
-  <section id="menu" class="hidden p-6">
-    <h2 class="text-3xl font-bold mb-6 text-center">Shop by Category</h2>
-    <div class="flex flex-wrap justify-center gap-2 mb-6" id="category-buttons"></div>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4" id="menu-items">
-    </div>
-  </section>
-
-  <!-- cart section -->
-
-  <section id="cart" class="hidden p-6 text-white">
-    <h2 class="text-2xl font-bold mb-4">Your Cart</h2>
-    <div id="cart-items" class="space-y-4"></div>
-    <div class="flex flex-wrap justify-start gap-2 mb-6" id="msgOfCartCount"></div>
-    <div class="mt-4">
-      <label for="coupon" class="block mb-2 font-semibold text-white">Have a coupon?</label>
-      <input type="text" id="coupon" placeholder="Enter coupon code"
-        class="text-black border p-2 rounded w-full max-w-sm" />
-      <button onclick="applyCoupon()" class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">
-        Apply
-      </button>
-    </div>
-    <div class="mt-4 font-bold text-xl">
-      Total: ₹<span id="cart-total">0</span>
-    </div>
-    <button onclick="goToPayment()" class="mt-4 bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
-      Proceed to Payment
-    </button>
-  </section>
-
-  <!-- payments -->
-
-  <section id="payment" class="hidden p-6">
-    <div class="max-w-5xl mx-auto p-6 bg-white rounded-2xl shadow-lg my-10">
-      <h2 class="text-3xl font-bold text-gray-800 mb-6">Payment & Billing</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Billing Details -->
-
-        <div>
-          <h3 class="text-xl font-semibold text-gray-700 mb-4">Billing Address</h3>
-          <div id="billing-addresses"></div>
-          <button id="add-new-billing-address-btn"
-            class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add New Address</button>
-          <!-- Edit/Add Modal (reuse the same modal as profile, but fill with billing data) -->
-          <div id="billing-edit-address-modal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
-            <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-              <h4 class="text-lg font-semibold mb-2" id="billing-modal-title">Add Address</h4>
-              <form id="billing-edit-address-form" class="space-y-2" onsubmit="saveBillingAddress(event)">
-                <input id="billing-address-name" type="text" class="border p-2 rounded w-full" placeholder="Name" required />
-                <input id="billing-address-phone" type="text" class="border p-2 rounded w-full" placeholder="Phone" required />
-                <input id="billing-address-email" type="email" class="border p-2 rounded w-full" placeholder="Email" required />
-                <input id="billing-address-line" type="text" class="border p-2 rounded w-full" placeholder="Address Line" required />
-                <input id="billing-address-pincode" type="text" class="border p-2 rounded w-full" placeholder="Pincode" required />
-                <select id="billing-address-state" class="border p-2 rounded w-full" required>
-                  <option value="">Select State</option>
-                </select>
-                <div class="flex gap-2 justify-end">
-                  <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Save</button>
-                  <button type="button" onclick="closeBillingEditAddressModal()" class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">Cancel</button>
-                </div>
-              </form>
+    <!-- Navbar -->
+    <header class="bg-white shadow-md h-[50px] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-1 flex items-center justify-between">
+            <div class="flex mt-1" style="cursor: pointer" onclick="displaySection('home')">
+                <h1 class="font-mono subpixel-antialiased mt-1" style="font-size: 18px; font-weight: bold">
+                    Xaliks
+                </h1>
             </div>
-          </div>
+            <div class="hidden bg-white md:flex space-x-4 mt-2">
+                <button onclick="displaySection('home')" class="hover:text-primary">
+                    Home
+                </button>
+                <button onclick="displaySection('menu')" class="hover:text-primary">
+                    Menu
+                </button>
+                <button onclick="displaySection('cart')" class="hover:text-primary">
+                    Cart(<span id="cart-count">0</span>)
+                </button>
+                <button onclick="displaySection('profile')" class="hover:text-primary">
+                    Profile
+                </button>
+            </div>
+            <div class="md:hidden">
+                <button id="navToggle" class="text-2xl">
+                    <img class="w-[40px] h-[40]" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIAIAAgAMBIgACEQEDEQH/xAApAAEBAQEAAAAAAAAAAAAAAAAABgQFAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAKqAAAAAAAAAR+cuEOLhDi4Q4uEOLhD6CwABH57gQ64EOuBDrgQ64EPosAAAAAR+cuEOLhDi4Q+gsAAAAR+e4EOuBDrgQ+iwAAAAAA4R3UOLhD6CwAAAAA4XdEOuBD6LAAAAAAAAAAf/8QAAv/aAAwDAQACAAMAAAAhAAAAAAAAAEMMMMMAAwwwwwgAAAAEMMMAAAAwwwgAAAAAAMMAAAAAQwgAAAAAAAAA/8QAAv/aAAwDAQACAAMAAAAQ88888888888888488c88888888888848888c8888888848488888s88888888888/8QAFBEBAAAAAAAAAAAAAAAAAAAAYP/aAAgBAgEBPwAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAYP/aAAgBAwEBPwAB/8QAJhAAAAUDBQACAwEAAAAAAAAAAAECBRYDY5EEBhETITFQEjBBIP/aAAgBAQABPwL7LU7hr9qioJR+BH5z7yJE4W8CROFvAkThbwJE4W8CROFvAkThbwJE4W8CROFvAkThbwDTbhr9qSrpQaD+ePOP86nb1ftUdBSDQZ+c+GQjrhbyI64W8iOuFvIjrhbyI64W8iOuFvIjrhbyI64W8iOuFvIjrhbyI64W8iOuFvIjrhbyNNt6v2pOupBII/ePTP6nU7hr9qioJR+BH5z7yJE4W8CROFvAkThbwJE4W8CROFvAkThbwNNuGv2pKulBoP5484/TqdvV+1R0FINBn5z4ZCOuFvIjrhbyI64W8iOuFvIjrhbyI64W8jTber9qTrqQSCP3j0z+sdnZWkUmnTSRrMuTM/4JE4W8CROFvAkThbwNNuGv2pKulBoP5484/Y7NKtWpNSkoiWRcGR/0R1wt5EdcLeRHXC3kabb1ftSddSCQR+8emf2f//EABwQAAICAgMAAAAAAAAAAAAAAAERIDAhUDFBcf/aAAgBAQABPyHZKxIELVlVVVVVVfwCIGi48SD8Faqqqqqq5cAAWpCsSBC0yqqqr+ARA1LjxIPwTVVVVy4AAtYOvtGQgqq/gEQNY6+sZCCquXAAFsx//8QAGxAAAwEBAQEBAAAAAAAAAAAAAAFhEVAwIDH/2gAIAQEAAT8Q6WtDnUVTqdTqdTqdTqdTqa6KV3Sfzt8BvQYnE4nE4nE4nE4nE8qSO/JGtDnUVTqdTqdTqa6KV3Sfjt8BvQYnE4nE4nE8qSO/MH7f3A6VOp1NdFK7pP03eOBpUicTieVJHfpj/9k=" />
+                </button>
+            </div>
+        </div>
+        <div id="mobileNav" class="hidden bg-white md:hidden px-4 py-2 space-y-2">
+            <button onclick="displaySection('home');clk()" class="block">
+                Home
+            </button>
+            <button onclick="displaySection('menu');clk()" class="block">
+                Menu
+            </button>
+            <button onclick="displaySection('cart');clk()" class="block">
+                Cart(<span id="cart-count">0</span>)
+            </button>
+            <button onclick="displaySection('profile');clk()" class="block">
+                Profile
+            </button>
+        </div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-mnF7MfAdVxAoEo3xYZ63gRyA8VNzvDK5X5u4Zya6d4XJvlUBOq1wqEmODF3e+7Lk8loA1+/1ZyU7GyD9WBKszQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </header>
+
+    <!-- Home  -->
+
+    <section id="home" class="p-4">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <div class="max-w-3xl mx-auto mt-6 px-4">
+            <div class="relative">
+                <span class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                    <i class="fas fa-search text-gray-400"></i>
+                </span>
+                <input id="searchInput" type="text" placeholder="Search for T-Shirts..." class="w-full pl-10 pr-4 py-3 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-primary" />
+            </div>
+        </div>
+        <div class="mt-10 flex justify-center">
+            <img class="rounded-lg md:w-[980px]" src="https://static.vecteezy.com/system/resources/previews/043/269/032/non_2x/a-3d-mockup-presents-a-blank-t-shirt-in-white-isolated-against-a-white-background-suitable-for-various-designs-ideal-for-showcasing-apparel-for-both-male-and-female-wearers-free-vector.jpg" />
         </div>
 
-        
-        <!-- Order Summary -->
-
-        <div>
-          <h3 class="text-xl font-semibold text-gray-700 mb-4">
-            Order Summary
-          </h3>
-          <div id="order-summary" class="space-y-2 text-sm">
-            <!-- JS will inject order items here -->
-          </div>
-          <div class="border-t pt-4 mt-4 text-gray-700 text-sm">
-            <div class="flex justify-between">
-              <span>Subtotal</span><span id="subtotal">₹0</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Tax (5%)</span><span id="tax">₹0</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Discount</span><span id="discount">₹0</span>
-            </div>
-            <div class="flex justify-between font-semibold text-lg mt-2">
-              <span>Total</span><span id="total">₹0</span>
-            </div>
-          </div>
+        <section id="productList" class="max-w-5xl mx-auto p-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 mt-6"></section>
+        <div id="noResults" class="hidden text-center text-lg font-semibold text-red-600 mt-6">
+            No matching products found.
         </div>
-      </div>
-      <div class="mt-10">
-        <h3 class="text-xl font-semibold text-gray-700 mb-4">
-          Choose Payment Method
-        </h3>
-        <div class="space-y-4">
-          <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-            <input type="radio" name="payment" value="UPI" checked class="form-radio" />
-            <span>UPI (Google Pay, PhonePe, Paytm)</span>
-          </label>
-          <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-            <input type="radio" name="payment" value="Card" class="form-radio" />
-            <span>Credit / Debit Card</span>
-          </label>
-          <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-            <input type="radio" name="payment" value="Wallet" class="form-radio" />
-            <span>Wallet (Amazon Pay, Mobikwik)</span>
-          </label>
-          <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-            <input type="radio" name="payment" value="COD" class="form-radio" />
-            <span>Cash on Delivery</span>
-          </label>
-        </div>
-      </div>
 
-      <div class="mt-8 text-right">
-        <button onclick="submitPayment()"
-          class="bg-black text-white px-6 py-3 rounded-lg text-lg hover:bg-gray-800 transition">
-          Proceed to Pay
+        <div class="mb-6"></div>
+    </section>
+
+    <!-- product detail section -->
+
+    <section id="product-detail" class="hidden p-6"></section>
+
+    <!-- menu section -->
+
+    <section id="menu" class="hidden p-6">
+        <h2 class="text-3xl font-bold mb-6 text-center">Shop by Category</h2>
+        <div class="flex flex-wrap justify-center gap-2 mb-6" id="category-buttons"></div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4" id="menu-items">
+        </div>
+    </section>
+
+    <!-- cart section -->
+
+    <section id="cart" class="hidden p-6 text-white">
+        <h2 class="text-2xl font-bold mb-4">Your Cart</h2>
+        <div id="cart-items" class="space-y-4"></div>
+        <div class="flex flex-wrap justify-start gap-2 mb-6" id="msgOfCartCount"></div>
+        <div class="mt-4">
+            <label for="coupon" class="block mb-2 font-semibold text-white">Have a coupon?</label>
+            <input type="text" id="coupon" placeholder="Enter coupon code" class="text-black border p-2 rounded w-full max-w-sm" />
+            <button onclick="applyCoupon()" class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">
+                Apply
+            </button>
+        </div>
+        <div class="mt-4 font-bold text-xl">
+            Total: ₹<span id="cart-total">0</span>
+        </div>
+        <button onclick="goToPayment()" class="mt-4 bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
+            Proceed to Payment
         </button>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- about us -->
+    <!-- payments -->
 
-  <section id="profile" class="hidden p-6">
-    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
-      <div id="login-section" class="flex flex-col items-center justify-center py-10">
-        <h2 class="text-2xl font-bold mb-4 text-purple-700">Login to Your Account</h2>
-        <input id="login-email" type="email" placeholder="Email" class="border p-2 rounded mb-2 w-64" />
-        <input id="login-password" type="password" placeholder="Password" class="border p-2 rounded mb-4 w-64" />
-        <button onclick="loginUser()"
-          class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 w-32">Login</button>
-      </div>
-      <div id="profile-section" class="hidden">
-        <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
-          <!-- Profile Photo -->
-          <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-purple-600 relative group">
-            <img id="profile-img" src="" alt="User Photo" class="w-full h-full object-cover" />
-            <label for="img-upload"
-              class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 cursor-pointer transition">
-              <i class="fa fa-camera text-white text-2xl"></i>
-              <input id="img-upload" type="file" accept="image/*" class="hidden" onchange="changeProfileImage(event)" />
-            </label>
-          </div>
-          <!-- Profile Info -->
-          <div class="flex-1">
-            <div id="profile-view">
-              <h2 id="profile-name" class="text-2xl font-bold text-purple-700 mb-1"></h2>
-              <p id="profile-email" class="text-gray-600 mb-2"></p>
-              <p id="profile-phone" class="text-gray-700"></p>
-              <div class="mt-4">
-                <button onclick="editProfile()"
-                  class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Edit Profile</button>
-                <button onclick="logoutUser()"
-                  class="ml-2 bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">Logout</button>
-              </div>
-            </div>
-            <form id="profile-edit" class="hidden space-y-2 mt-2" onsubmit="saveProfile(event)">
-              <input id="edit-name" type="text" class="border p-2 rounded w-full" placeholder="Full Name" required />
-              <input id="edit-email" type="email" class="border p-2 rounded w-full" placeholder="Email" required />
-              <input id="edit-phone" type="text" class="border p-2 rounded w-full" placeholder="Phone" required />
-              <div class="flex gap-2">
-                <button type="submit"
-                  class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Save</button>
-                <button type="button" onclick="cancelEditProfile()"
-                  class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">Cancel</button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <!-- Saved Addresses Management -->
-        <div class="mt-8">
-          <h3 class="text-xl font-semibold text-gray-800 mb-4">🏠 Saved Addresses</h3>
-          <div id="address-list" class="space-y-2"></div>
-          <form id="address-form" class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4 bg-gray-50 p-4 rounded" onsubmit="addAddress(event)">
-            <input id="address-name" type="text" class="border p-2 rounded" placeholder="Name" required />
-            <input id="address-phone" type="text" class="border p-2 rounded" placeholder="Phone" required />
-            <input id="address-email" type="email" class="border p-2 rounded" placeholder="Email" required />
-            <input id="address-line" type="text" class="border p-2 rounded" placeholder="Address Line" required />
-            <input id="address-pincode" type="text" class="border p-2 rounded" placeholder="Pincode" required />
-            <select id="address-state" class="border p-2 rounded" required>
-              <option value="">Select State</option>
-            </select>
-            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 col-span-2">Add Address</button>
-          </form>
-          <!-- Edit Address Modal -->
-          <div id="edit-address-modal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
-            <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-              <h4 class="text-lg font-semibold mb-2">Edit Address</h4>
-              <form id="edit-address-form" class="space-y-2" onsubmit="saveEditedAddress(event)">
-                <input id="edit-address-name" type="text" class="border p-2 rounded w-full" placeholder="Name" required />
-                <input id="edit-address-phone" type="text" class="border p-2 rounded w-full" placeholder="Phone" required />
-                <input id="edit-address-email" type="email" class="border p-2 rounded w-full" placeholder="Email" required />
-                <input id="edit-address-line" type="text" class="border p-2 rounded w-full" placeholder="Address Line" required />
-                <input id="edit-address-pincode" type="text" class="border p-2 rounded w-full" placeholder="Pincode" required />
-                <select id="edit-address-state" class="border p-2 rounded w-full" required>
-                  <option value="">Select State</option>
-                </select>
-                <div class="flex gap-2 justify-end">
-                  <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Save</button>
-                  <button type="button" onclick="closeEditAddressModal()" class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">Cancel</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-        <!-- Order History -->
-        <div class="mt-8">
-          <h3 class="text-xl font-semibold text-gray-800 mb-4">🧾 Order History</h3>
-          <div class="space-y-4" id="order-history">
-            <div class="border rounded p-4 bg-gray-50">
-              <div class="flex justify-between">
+    <section id="payment" class="hidden p-6">
+        <div class="max-w-5xl mx-auto p-6 bg-white rounded-2xl shadow-lg my-10">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Payment & Billing</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Billing Details -->
+
                 <div>
-                  <p class="font-semibold text-lg">#ORD123456</p>
-                  <p class="text-sm text-gray-500">Placed on: 10 May 2025</p>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-4">Billing Address</h3>
+                    <div id="billing-addresses"></div>
+                    <button id="add-new-billing-address-btn" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add New Address</button>
+                    <!-- Edit/Add Modal (reuse the same modal as profile, but fill with billing data) -->
+                    <div id="billing-edit-address-modal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
+                        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+                            <h4 class="text-lg font-semibold mb-2" id="billing-modal-title">Add Address</h4>
+                            <form id="billing-edit-address-form" class="space-y-2" onsubmit="saveBillingAddress(event)">
+                                <input id="billing-address-name" type="text" class="border p-2 rounded w-full" placeholder="Name" required />
+                                <input id="billing-address-phone" type="text" class="border p-2 rounded w-full" placeholder="Phone" required />
+                                <input id="billing-address-email" type="email" class="border p-2 rounded w-full" placeholder="Email" required />
+                                <input id="billing-address-line" type="text" class="border p-2 rounded w-full" placeholder="Address Line" required />
+                                <input id="billing-address-pincode" type="text" class="border p-2 rounded w-full" placeholder="Pincode" required />
+                                <select id="billing-address-state" class="border p-2 rounded w-full" required>
+                                    <option value="">Select State</option>
+                                </select>
+                                <div class="flex gap-2 justify-end">
+                                    <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Save</button>
+                                    <button type="button" onclick="closeBillingEditAddressModal()" class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-right">
-                  <p class="text-green-600 font-semibold">Delivered</p>
-                  <p class="text-gray-700">₹1497</p>
-                </div>
-              </div>
-              <p class="mt-2 text-sm text-gray-600">🛍️ 3 T-shirts (Minimal, Quotes, Streetwear)</p>
-            </div>
-            <div class="border rounded p-4 bg-gray-50">
-              <div class="flex justify-between">
+
+
+                <!-- Order Summary -->
+
                 <div>
-                  <p class="font-semibold text-lg">#ORD123123</p>
-                  <p class="text-sm text-gray-500">Placed on: 01 May 2025</p>
+                    
+                    <div id="order-summary" class="space-y-2 text-sm">
+                        <!-- JS will inject order items here -->
+                    </div>
+                    <div class="border-t pt-4 mt-4 text-gray-700 text-sm">
+                        
+                    </div>
                 </div>
-                <div class="text-right">
-                  <p class="text-yellow-600 font-semibold">In Transit</p>
-                  <p class="text-gray-700">₹998</p>
-                </div>
-              </div>
-              <p class="mt-2 text-sm text-gray-600">🛍️ 2 T-shirts (Vintage, Abstract)</p>
             </div>
-          </div>
+            <div class="mt-10">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">
+                    Choose Payment Method
+                </h3>
+                <div class="space-y-4">
+                    <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                        <input type="radio" name="payment" value="UPI" checked class="form-radio" />
+                        <span>UPI (Google Pay, PhonePe, Paytm)</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                        <input type="radio" name="payment" value="Card" class="form-radio" />
+                        <span>Credit / Debit Card</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                        <input type="radio" name="payment" value="Wallet" class="form-radio" />
+                        <span>Wallet (Amazon Pay, Mobikwik)</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                        <input type="radio" name="payment" value="COD" class="form-radio" />
+                        <span>Cash on Delivery</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="mt-8 text-right">
+                <button onclick="submitPayment()" class="bg-black text-white px-6 py-3 rounded-lg text-lg hover:bg-gray-800 transition">
+                    Proceed to Pay
+                </button>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="text-center text-sm text-gray-500 py-6">
-    © 2025 XALIKS.
-  </footer>
+    <!-- about us -->
 
-  <script src="script.js"></script>
+    <section id="profile" class="hidden p-6">
+        <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
+            <div id="login-section" class="flex flex-col items-center justify-center py-10">
+                <h2 class="text-2xl font-bold mb-4 text-purple-700">Login to Your Account</h2>
+                <input id="login-email" type="email" placeholder="Email" class="border p-2 rounded mb-2 w-64" />
+                <input id="login-password" type="password" placeholder="Password" class="border p-2 rounded mb-4 w-64" />
+                <button onclick="loginUser()" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 w-32">Login</button>
+            </div>
+            <div id="profile-section" class="hidden">
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                    <!-- Profile Photo -->
+                    <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-purple-600 relative group">
+                        <img id="profile-img" src="" alt="User Photo" class="w-full h-full object-cover" />
+                        <label for="img-upload" class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 cursor-pointer transition">
+                            <i class="fa fa-camera text-white text-2xl"></i>
+                            <input id="img-upload" type="file" accept="image/*" class="hidden" onchange="changeProfileImage(event)" />
+                        </label>
+                    </div>
+                    <!-- Profile Info -->
+                    <div class="flex-1">
+                        <div id="profile-view">
+                            <h2 id="profile-name" class="text-2xl font-bold text-purple-700 mb-1"></h2>
+                            <p id="profile-email" class="text-gray-600 mb-2"></p>
+                            <p id="profile-phone" class="text-gray-700"></p>
+                            <div class="mt-4">
+                                <button onclick="editProfile()" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Edit Profile</button>
+                                <button onclick="logoutUser()" class="ml-2 bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">Logout</button>
+                            </div>
+                        </div>
+                        <form id="profile-edit" class="hidden space-y-2 mt-2" onsubmit="saveProfile(event)">
+                            <input id="edit-name" type="text" class="border p-2 rounded w-full" placeholder="Full Name" required />
+                            <input id="edit-email" type="email" class="border p-2 rounded w-full" placeholder="Email" required />
+                            <input id="edit-phone" type="text" class="border p-2 rounded w-full" placeholder="Phone" required />
+                            <div class="flex gap-2">
+                                <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Save</button>
+                                <button type="button" onclick="cancelEditProfile()" class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Saved Addresses Management -->
+                <div class="mt-8">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">🏠 Addresses</h3>
+                    <div class="flex gap-2 mb-4">
+                        <button id="show-saved-addresses-btn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                            Saved Addresses
+                        </button>
+                        <button id="add-new-address-btn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                            Add New Address
+                        </button>
+                    </div>
+                    <!-- Saved Addresses Section (hidden by default) -->
+                    <div id="saved-addresses-section" class="hidden space-y-2 mb-4">
+                        <div id="address-list"></div>
+                    </div>
+                    <!-- Add/Edit Address Modal -->
+                    <div id="edit-address-modal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
+                        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+                            <h4 class="text-lg font-semibold mb-2" id="address-modal-title">Add Address</h4>
+                            <form id="edit-address-form" class="space-y-2" onsubmit="saveEditedAddress(event)">
+                                <input id="edit-address-name" type="text" class="border p-2 rounded w-full" placeholder="Name" required />
+                                <input id="edit-address-phone" type="text" class="border p-2 rounded w-full" placeholder="Phone" required />
+                                <input id="edit-address-email" type="email" class="border p-2 rounded w-full" placeholder="Email" required />
+                                <input id="edit-address-line" type="text" class="border p-2 rounded w-full" placeholder="Address Line" required />
+                                <input id="edit-address-pincode" type="text" class="border p-2 rounded w-full" placeholder="Pincode" required />
+                                <select id="edit-address-state" class="border p-2 rounded w-full" required>
+                                        <option value="">--Select state--</option>
+                                        <!-- <option value="AP">Andhra Pradesh</option>
+                                        <option value="AR">Arunachal Pradesh</option>
+                                        <option value="AS">Assam</option>
+                                        <option value="BR">Bihar</option>
+                                        <option value="CT">Chhattisgarh</option>
+                                        <option value="GA">Goa</option>
+                                        <option value="GJ">Gujarat</option>
+                                        <option value="HR">Haryana</option>
+                                        <option value="HP">Himachal Pradesh</option>
+                                        <option value="JH">Jharkhand</option>
+                                        <option value="KA">Karnataka</option>
+                                        <option value="KL">Kerala</option>
+                                        <option value="MP">Madhya Pradesh</option>
+                                        <option value="MH">Maharashtra</option>
+                                        <option value="MN">Manipur</option>
+                                        <option value="ML">Meghalaya</option>
+                                        <option value="MZ">Mizoram</option>
+                                        <option value="NL">Nagaland</option>
+                                        <option value="OR">Odisha</option>
+                                        <option value="PB">Punjab</option>
+                                        <option value="RJ">Rajasthan</option>
+                                        <option value="SK">Sikkim</option>
+                                        <option value="TN">Tamil Nadu</option>
+                                        <option value="TG">Telangana</option>
+                                        <option value="TR">Tripura</option>
+                                        <option value="UP">Uttar Pradesh</option>
+                                        <option value="UK">Uttarakhand</option>
+                                        <option value="WB">West Bengal</option>
+                                        <option value="AN">Andaman and Nicobar Islands</option>
+                                        <option value="CH">Chandigarh</option>
+                                        <option value="DN">Dadra and Nagar Haveli and Daman and Diu</option>
+                                        <option value="DL">Delhi</option>
+                                        <option value="JK">Jammu and Kashmir</option>
+                                        <option value="LA">Ladakh</option>
+                                        <option value="LD">Lakshadweep</option>
+                                        <option value="PY">Puducherry</option> -->
+                                </select>
+                                <div class="flex gap-2 justify-end">
+                                    <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Save</button>
+                                    <button type="button" onclick="closeEditAddressModal()" class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Order History -->
+                <div class="mt-8">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">🧾 Order History</h3>
+                    <div class="space-y-4" id="order-history">
+                        <div class="border rounded p-4 bg-gray-50">
+                            <div class="flex justify-between">
+                                <div>
+                                    <p class="font-semibold text-lg">#ORD123456</p>
+                                    <p class="text-sm text-gray-500">Placed on: 10 May 2025</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-green-600 font-semibold">Delivered</p>
+                                    <p class="text-gray-700">₹1497</p>
+                                </div>
+                            </div>
+                            <p class="mt-2 text-sm text-gray-600">🛍️ 3 T-shirts (Minimal, Quotes, Streetwear)</p>
+                        </div>
+                        <div class="border rounded p-4 bg-gray-50">
+                            <div class="flex justify-between">
+                                <div>
+                                    <p class="font-semibold text-lg">#ORD123123</p>
+                                    <p class="text-sm text-gray-500">Placed on: 01 May 2025</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-yellow-600 font-semibold">In Transit</p>
+                                    <p class="text-gray-700">₹998</p>
+                                </div>
+                            </div>
+                            <p class="mt-2 text-sm text-gray-600">🛍️ 2 T-shirts (Vintage, Abstract)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center text-sm text-gray-500 py-6">
+        © 2025 XALIKS.
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
